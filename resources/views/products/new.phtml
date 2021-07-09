@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>New item</h1>
+<div>
+    <a href="/">items list</a>
+</div>
+<br>
+<form action="/items" method="post">
+    <div>
+        <b>Name</b>
+        <input type="text" name="item[name]" value="<?= htmlspecialchars($item['name'] ?? '') ?>">
+        <?php if (isset($errors['name'])) : ?>
+            <div style="color: red"><?= $errors['name'] ?></div>
+        <?php endif ?>
+    </div>
+    <br>
+    <div>
+        <b>Price</b>
+        <input type="text" name="item[price]" value="<?= htmlspecialchars($item['price'] ?? '') ?>">
+        <?php if (isset($errors['price'])) : ?>
+            <div style="color: red"><?= $errors['price'] ?></div>
+        <?php endif ?>
+    </div>
+    <br>
+    <div>
+        <b>Date and time</b>
+        <input type="text" name="item[dateTime]" value="<?= htmlspecialchars($item['dateTime'] ?? '') ?>">
+        <?php if (isset($errors['dateTime'])) : ?>
+            <div style="color: red"><?= $errors['dateTime'] ?></div>
+        <?php endif ?>
+    </div><br>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Items</h1>
+<div>
+    <a class="new-item" href="/items/new">add new</a>
+</div>
+<br>
+<table border="1" style="border-collapse: collapse;">
+    <tr>
+        <td>Title</td>
+        <td>Price, USD</td>
+        <td>Date and time</td>
+        <td>Actions</td>
+    </tr>
+    <?php foreach ($items as $item) : ?>
+        <tr class="tr">
+            <td><?= $item['name'] ?></td>
+            <td><?= $item['price'] ?></td>
+            <td><?= $item['dateTime'] ?></td>
+            <td>
+                <form class="form" action="/items/<?= $item['id'] ?>" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="submit" name="" value="remove">
+                </form>
+            </td>
+        </tr>
+    <?php endforeach ?>
+</table>
+</body>
+</html>
